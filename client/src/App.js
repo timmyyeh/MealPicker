@@ -1,22 +1,21 @@
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Search from './components/Search';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Hello World!!!
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <h1>Home page</h1>
+        <Link to='/search'>Search</Link>
+        <Switch>
+          <Route path='/search'>
+            <Search />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
