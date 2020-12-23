@@ -10,11 +10,16 @@ require('dotenv').config({
 // connect to db
 connectDB();
 
+// body parser
+app.use(express.json());
+
 // use route
 app.use('/search', require('./routes/search.js'));
+app.use('/login', require('./routes/login.js'));
+app.use('/signup', require('./routes/signup.js'));
 
 app.get('/healthcheck', (req, res) => {
-    res.send('health');
+    res.send('healthy');
 });
 
 const PORT = process.env.PORT | 8080;
